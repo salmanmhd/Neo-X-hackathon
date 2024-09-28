@@ -1,7 +1,7 @@
-import './App.css';
+import "./App.css";
 
 function App() {
-  return <div className='bg-red-500'>ActiveNeo</div>;
+  return <div className="bg-red-500 text-white">ActiveNeo</div>;
 }
 
 export default App;
