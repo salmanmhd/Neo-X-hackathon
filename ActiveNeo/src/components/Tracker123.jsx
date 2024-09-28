@@ -1,13 +1,8 @@
 import { useState } from 'react';
-import { Button } from '../components/ui/button';
-import { Progress } from '../components/ui/progress';
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from '../components/ui/card';
-import { Calendar } from '../components/ui/calendar';
+import { Button } from './ui/button';
+import { Progress } from './ui/progress';
+import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
+import { Calendar } from './ui/calendar';
 import { MapPin, Video, Award, Coins, BarChart2 } from 'lucide-react';
 
 export default function Tracker() {

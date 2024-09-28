@@ -14,3 +14,9 @@
 - Creating a page where user will be able to track their workout.
 - Upload video: The user uploads a video of their workout.
 - Earn Rewards: After verified completion, the user gets a token reward.
+
+1. UI
+2. input fields
+3. video upload
+
+1 . Gym creation
