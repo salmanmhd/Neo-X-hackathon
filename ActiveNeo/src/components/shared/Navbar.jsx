@@ -25,8 +25,8 @@ const Navbar = () => {
       {/* Navigation Links */}
       <div className="text-gray-400 order-3 w-full md:w-auto md:order-2 flex flex-grow justify-center">
         <div className="md:px-4 md:py-2">
-          <Link to="/workout" className="text-indigo-500">
-            Work Out
+          <Link to="/tracker" className="text-indigo-500">
+            Workout Tracker
           </Link>
         </div>
         <ul className="flex font-semibold justify-between">
@@ -34,7 +34,7 @@ const Navbar = () => {
             <Link to="/">Home</Link>
           </li>
           <li className="md:px-4 md:py-2 hover:text-indigo-500">
-            <Link to="/about">About</Link>
+            <Link to="#footer">About</Link>
           </li>
           <li className="md:px-4 md:py-2 hover:text-indigo-500">
             <Link to="/contact">Contact Us</Link>
@@ -48,22 +48,7 @@ const Navbar = () => {
       {/* Login Button */}
       <div className="order-2 md:order-3 flex flex-row">
         <button className="px-4 py-2 border border-indigo-500 hover:bg-indigo-600 text-gray-50 rounded-xl flex items-center gap-2 hover:bg-gradient-to-r from-purple-500 to-black mr-4">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-5 w-5"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-          >
-            <path
-              fillRule="evenodd"
-              d="M3 3a1 1 0 011 1v12a1 1 0 11-2 0V4a1 1 0 011-1zm7.707 3.293a1 1 0 010 1.414L9.414 9H17a1 1 0 110 2H9.414l1.293 1.293a1 1 0 01-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0z"
-              clip-rule="evenodd"
-            />
-          </svg>
-          <span>Login</span>
-        </button>
-        <button className="px-4 py-2 border border-indigo-500 hover:bg-indigo-600 text-gray-50 rounded-xl flex items-center gap-2 hover:bg-gradient-to-r from-purple-500 to-black">
-          <span>SignUp</span>
+          <Link to="/connectwallet">Connect Wallet</Link>
         </button>
       </div>
     </nav>

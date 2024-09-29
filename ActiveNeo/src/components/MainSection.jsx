@@ -14,13 +14,13 @@ function MainSection() {
         </p>
 
         <div className="flex space-x-4 mt-8">
-          <div className="bg-gray-800 p-4 rounded-lg">{/* Image 1 */}</div>
-          <div className="bg-gray-800 p-4 rounded-lg">{/* Image 2 */}</div>
-          <div className="bg-gray-800 p-4 rounded-lg">{/* Image 3 */}</div>
+          <button className="px-4 py-2 border border-indigo-500 hover:bg-indigo-600 text-gray-50 rounded-xl flex items-center gap-2 hover:bg-gradient-to-r from-purple-500 to-black">
+            <span>Start Tracking</span>
+          </button>
         </div>
       </div>
 
-      <div className="box-content h-1/1 w-3/5 p-4 bg-none">
+      <div className="box-content h-1/1 w-3/5 p-1 bg-none">
         <Spline scene="https://prod.spline.design/s4OQyDEGP32PGCxB/scene.splinecode" />
       </div>
     </div>
