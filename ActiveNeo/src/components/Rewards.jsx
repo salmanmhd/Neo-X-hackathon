@@ -30,7 +30,7 @@ const Rewards = () => {
           ].map((reward, index) => (
             <div
               key={index}
-              className="p-6 bg-gray-800 text-white rounded-lg shadow-lg transition-transform transform hover:scale-105"
+              className="p-6 bg-purple-900 border border-purple-600 text-white rounded-lg shadow-lg transition-transform transform hover:scale-105"
             >
               <h3 className="font-semibold text-lg">{reward.title}</h3>
               <p className="text-gray-400">{reward.description}</p>

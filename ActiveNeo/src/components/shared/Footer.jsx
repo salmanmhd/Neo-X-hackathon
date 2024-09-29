@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <footer
       id="footer"
-      className="bg-gradient-to-r from-black to-purple-600 text-gray-300 py-12"
+      className="bg-gradient-to-r from-black to-purple-600 text-gray-300 py-8"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Footer Top Section */}
@@ -122,7 +122,7 @@ const Footer = () => {
         </div>
 
         {/* Footer Bottom Section */}
-        <div className="mt-12 border-t border-gray-700 pt-8 text-center text-gray-400">
+        <div className="mt-6   border-t border-gray-700 pt-8 text-center text-gray-400">
           <p>
             Built with <span className="text-red-500">♥</span> by ActiveNeo
             Team.

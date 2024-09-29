@@ -19,7 +19,7 @@ const AIInsights = () => {
             burnout, and boost your performance.
           </p>
           <div className="mt-6">
-            <button className="bg-gray-800 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition-transform transform hover:scale-105">
+            <button className="bg-purple-900 border border-purple-600  text-white font-semibold py-2 px-4 rounded-lg shadow-md transition-transform transform hover:scale-105">
               Discover Your Insights
             </button>
           </div>
