@@ -20,3 +20,6 @@
 3. video upload
 
 1 . Gym creation
+
+create a page to add gyms
+create a page to choose challenges

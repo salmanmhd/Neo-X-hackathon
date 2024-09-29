@@ -5,9 +5,10 @@ import { Camera } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
 import { Button } from '../ui/button';
 
-export default function ImageCapture() {
+export default function ImageCapture({ setIsImageClicked, setTime }) {
   const [imageSrc, setImageSrc] = useState(null);
   const [isCameraActive, setIsCameraActive] = useState(false);
+  const [metadata, setMetadata] = useState(null);
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
 
@@ -16,7 +17,7 @@ export default function ImageCapture() {
       const stream = await navigator.mediaDevices.getUserMedia({ video: true });
       if (videoRef.current) {
         videoRef.current.srcObject = stream;
-        setIsCameraActive(true); // Set camera as active
+        setIsCameraActive(true);
       }
     } catch (err) {
       console.error('Camera access error:', err);
@@ -26,7 +27,6 @@ export default function ImageCapture() {
   const captureImage = () => {
     const context = canvasRef.current?.getContext('2d');
     if (context && videoRef.current) {
-      // Draw the video frame to the canvas
       context.drawImage(
         videoRef.current,
         0,
@@ -34,9 +34,12 @@ export default function ImageCapture() {
         canvasRef.current.width,
         canvasRef.current.height
       );
-      // Set the captured image as the source
-      setImageSrc(canvasRef.current.toDataURL('image/jpeg'));
-      stopCamera(); // Stop the camera after capturing the image
+      const imageDataUrl = canvasRef.current.toDataURL('image/jpeg');
+      setImageSrc(imageDataUrl);
+
+      getLocationAndLogMetadata(imageDataUrl);
+
+      stopCamera();
     }
   };
 
@@ -46,8 +49,54 @@ export default function ImageCapture() {
     setIsCameraActive(false); // Set camera as inactive
   };
 
+  const getLocationAndLogMetadata = (imageDataUrl) => {
+    const timestamp = new Date().toISOString(); // Get the current timestamp
+    setTime(timestamp);
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const { latitude, longitude } = position.coords;
+          const imageMetadata = {
+            timestamp,
+            location: { latitude, longitude },
+            imageSize: imageDataUrl.length, // The size of the image data URL (in characters)
+            imageType: 'image/jpeg',
+          };
+
+          setMetadata(imageMetadata);
+          console.log('Image Metadata:', imageMetadata); // Log the metadata
+          setIsImageClicked(true); // Notify parent component that image is captured
+        },
+        (error) => {
+          console.error('Error retrieving location:', error);
+          // If location access is denied or unavailable, log only the timestamp
+          const imageMetadata = {
+            timestamp,
+            location: null, // No location available
+            imageSize: imageDataUrl.length,
+            imageType: 'image/jpeg',
+          };
+          setMetadata(imageMetadata);
+          console.log('Image Metadata without location:', imageMetadata);
+          setIsImageClicked(true); // Notify parent even if location is unavailable
+        }
+      );
+    } else {
+      console.error('Geolocation is not supported by this browser.');
+      const imageMetadata = {
+        timestamp,
+        location: null,
+        imageSize: imageDataUrl.length,
+        imageType: 'image/jpeg',
+      };
+      setMetadata(imageMetadata);
+      console.log('Image Metadata without location:', imageMetadata);
+      setIsImageClicked(true); // Notify parent when geolocation is unavailable
+    }
+  };
+
   return (
-    <div className='flex justify-center items-center min-h-screen bg-gradient-to-br from-purple-900 to-black text-white'>
+    <div className='flex justify-center items-center  bg-gradient-to-br from-purple-900 to-black text-white'>
       <Card className='w-full max-w-md mx-auto bg-gradient-to-br from-purple-800 to-gray-900 border-purple-600'>
         <CardHeader>
           <CardTitle className='text-2xl font-bold text-center text-purple-300'>

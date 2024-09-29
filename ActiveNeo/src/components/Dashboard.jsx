@@ -1,19 +1,3 @@
-// import React, { useState } from 'react';
-// import { Button } from '@/components/ui/button';
-// import { Progress } from '@/components/ui/progress';
-// import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-// import {
-//   BarChart,
-//   Calendar,
-//   MapPin,
-//   Video,
-//   Award,
-//   Coins,
-//   BarChart2,
-//   TrendingUp,
-//   Users,
-//   Lock,
-// } from 'lucide-react';
 import React, { useState } from 'react';
 import { Button } from '../components/ui/button';
 import { Progress } from '../components/ui/progress';
@@ -35,6 +19,7 @@ import {
   Users,
   Lock,
 } from 'lucide-react';
+
 export default function Dashboard() {
   const [neoBalance, setNeoBalance] = useState(150);
   const [nftsOwned, setNftsOwned] = useState(3);
@@ -42,104 +27,99 @@ export default function Dashboard() {
   const [weeklyGoalProgress, setWeeklyGoalProgress] = useState(75);
 
   const handleClaimRewards = () => {
-    // This function would typically interact with a smart contract to claim rewards
     console.log('Claiming rewards...');
     setNeoBalance((prevBalance) => prevBalance + 10);
   };
 
   const handleMintNFT = () => {
-    // This function would typically interact with a smart contract to mint an NFT
     console.log('Minting NFT...');
     setNftsOwned((prevCount) => prevCount + 1);
   };
 
   return (
-    <div className='container mx-auto p-4'>
-      <h1 className='text-3xl font-bold mb-6'>ActiveNeo Dashboard</h1>
-
+    <div className='flex justify-center items-center min-h-screen bg-gradient-to-br from-purple-900 to-black text-white'>
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
-        <Card>
+        <Card className='bg-gradient-to-br from-purple-800 to-gray-900 border-purple-600'>
           <CardHeader>
-            <CardTitle>Fitness Overview</CardTitle>
+            <CardTitle className='text-2xl font-bold text-center text-purple-300'>
+              Fitness Overview
+            </CardTitle>
           </CardHeader>
-          <CardContent>
-            <div className='space-y-4'>
-              <div className='flex items-center justify-between'>
-                <span>Workout Streak</span>
-                <span className='font-bold'>{workoutStreak} days</span>
-              </div>
-              <div>
-                <div className='flex justify-between mb-1'>
-                  <span>Weekly Goal Progress</span>
-                  <span>{weeklyGoalProgress}%</span>
-                </div>
-                <Progress value={weeklyGoalProgress} className='w-full' />
-              </div>
-              <Button
-                className='w-full'
-                onClick={() => console.log('View detailed stats')}
-              >
-                View Detailed Stats
-              </Button>
+          <CardContent className='space-y-4'>
+            <div className='flex items-center justify-between text-purple-300'>
+              <span>Workout Streak</span>
+              <span className='font-bold'>{workoutStreak} days</span>
             </div>
+            <div>
+              <div className='flex justify-between mb-1 text-purple-300'>
+                <span>Weekly Goal Progress</span>
+                <span>{weeklyGoalProgress}%</span>
+              </div>
+              <Progress value={weeklyGoalProgress} className='w-full' />
+            </div>
+            <Button className='w-full bg-purple-600 hover:bg-purple-700 text-white'>
+              View Detailed Stats
+            </Button>
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className='bg-gradient-to-br from-purple-800 to-gray-900 border-purple-600'>
           <CardHeader>
-            <CardTitle>Web3 Rewards</CardTitle>
+            <CardTitle className='text-2xl font-bold text-center text-purple-300'>
+              Web3 Rewards
+            </CardTitle>
           </CardHeader>
-          <CardContent>
-            <div className='space-y-4'>
-              <div className='flex items-center justify-between'>
-                <span className='flex items-center'>
-                  <Coins className='w-5 h-5 mr-2' />
-                  NEO Balance
-                </span>
-                <span className='font-bold'>{neoBalance} NEO</span>
-              </div>
-              <div className='flex items-center justify-between'>
-                <span className='flex items-center'>
-                  <Award className='w-5 h-5 mr-2' />
-                  NFTs Owned
-                </span>
-                <span className='font-bold'>{nftsOwned}</span>
-              </div>
-              <Button className='w-full' onClick={handleClaimRewards}>
-                Claim Daily Rewards
-              </Button>
-              <Button className='w-full' onClick={handleMintNFT}>
-                Mint Achievement NFT
-              </Button>
+          <CardContent className='space-y-4'>
+            <div className='flex items-center justify-between text-purple-300'>
+              <span className='flex items-center'>
+                <Coins className='w-5 h-5 mr-2' />
+                NEO Balance
+              </span>
+              <span className='font-bold'>{neoBalance} NEO</span>
             </div>
+            <div className='flex items-center justify-between text-purple-300'>
+              <span className='flex items-center'>
+                <Award className='w-5 h-5 mr-2' />
+                NFTs Owned
+              </span>
+              <span className='font-bold'>{nftsOwned}</span>
+            </div>
+            <Button className='w-full bg-green-600 hover:bg-green-700 text-white'>
+              Claim Daily Rewards
+            </Button>
+            <Button className='w-full bg-blue-600 hover:bg-blue-700 text-white'>
+              Mint Achievement NFT
+            </Button>
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className='bg-gradient-to-br from-purple-800 to-gray-900 border-purple-600'>
           <CardHeader>
-            <CardTitle>Data Control</CardTitle>
+            <CardTitle className='text-2xl font-bold text-center text-purple-300'>
+              Data Control
+            </CardTitle>
           </CardHeader>
-          <CardContent>
-            <div className='space-y-4'>
-              <Button className='w-full flex items-center justify-center'>
-                <MapPin className='w-4 h-4 mr-2' /> Manage Location Data
-              </Button>
-              <Button className='w-full flex items-center justify-center'>
-                <Video className='w-4 h-4 mr-2' /> Manage Workout Videos
-              </Button>
-              <Button className='w-full flex items-center justify-center'>
-                <BarChart2 className='w-4 h-4 mr-2' /> View Data Analytics
-              </Button>
-              <Button className='w-full flex items-center justify-center'>
-                <Lock className='w-4 h-4 mr-2' /> Privacy Settings
-              </Button>
-            </div>
+          <CardContent className='space-y-4'>
+            <Button className='w-full bg-purple-600 hover:bg-purple-700 text-white flex items-center justify-center'>
+              <MapPin className='w-4 h-4 mr-2' /> Manage Location Data
+            </Button>
+            <Button className='w-full bg-purple-600 hover:bg-purple-700 text-white flex items-center justify-center'>
+              <Video className='w-4 h-4 mr-2' /> Manage Workout Videos
+            </Button>
+            <Button className='w-full bg-purple-600 hover:bg-purple-700 text-white flex items-center justify-center'>
+              <BarChart2 className='w-4 h-4 mr-2' /> View Data Analytics
+            </Button>
+            <Button className='w-full bg-purple-600 hover:bg-purple-700 text-white flex items-center justify-center'>
+              <Lock className='w-4 h-4 mr-2' /> Privacy Settings
+            </Button>
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className='bg-gradient-to-br from-purple-800 to-gray-900 border-purple-600'>
           <CardHeader>
-            <CardTitle>Recent Activity</CardTitle>
+            <CardTitle className='text-2xl font-bold text-center text-purple-300'>
+              Recent Activity
+            </CardTitle>
           </CardHeader>
           <CardContent>
             <ul className='space-y-2'>
@@ -165,9 +145,9 @@ export default function Dashboard() {
               ].map((workout, index) => (
                 <li
                   key={index}
-                  className='flex items-center justify-between p-2 bg-secondary rounded-md'
+                  className='flex items-center justify-between p-2 bg-purple-900 rounded-md'
                 >
-                  <span>
+                  <span className='text-purple-300'>
                     {workout.date} - {workout.type} ({workout.duration} min)
                   </span>
                   {workout.verified && (
@@ -181,44 +161,50 @@ export default function Dashboard() {
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className='bg-gradient-to-br from-purple-800 to-gray-900 border-purple-600'>
           <CardHeader>
-            <CardTitle>Community Challenges</CardTitle>
+            <CardTitle className='text-2xl font-bold text-center text-purple-300'>
+              Community Challenges
+            </CardTitle>
           </CardHeader>
-          <CardContent>
-            <div className='space-y-4'>
-              <div className='flex items-center justify-between'>
-                <span>30-Day Running Challenge</span>
-                <Button size='sm'>Join</Button>
-              </div>
-              <div className='flex items-center justify-between'>
-                <span>Weightlifting Competition</span>
-                <Button size='sm'>View</Button>
-              </div>
-              <div className='flex items-center justify-between'>
-                <span>Yoga Marathon</span>
-                <Button size='sm'>Details</Button>
-              </div>
+          <CardContent className='space-y-4'>
+            <div className='flex items-center justify-between text-purple-300'>
+              <span>30-Day Running Challenge</span>
+              <Button size='sm' className='bg-purple-600 hover:bg-purple-700'>
+                Join
+              </Button>
+            </div>
+            <div className='flex items-center justify-between text-purple-300'>
+              <span>Weightlifting Competition</span>
+              <Button size='sm' className='bg-purple-600 hover:bg-purple-700'>
+                View
+              </Button>
+            </div>
+            <div className='flex items-center justify-between text-purple-300'>
+              <span>Yoga Marathon</span>
+              <Button size='sm' className='bg-purple-600 hover:bg-purple-700'>
+                Details
+              </Button>
             </div>
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className='bg-gradient-to-br from-purple-800 to-gray-900 border-purple-600'>
           <CardHeader>
-            <CardTitle>Marketplace</CardTitle>
+            <CardTitle className='text-2xl font-bold text-center text-purple-300'>
+              Marketplace
+            </CardTitle>
           </CardHeader>
-          <CardContent>
-            <div className='space-y-4'>
-              <Button className='w-full flex items-center justify-center'>
-                <TrendingUp className='w-4 h-4 mr-2' /> Trade NEO Tokens
-              </Button>
-              <Button className='w-full flex items-center justify-center'>
-                <Award className='w-4 h-4 mr-2' /> NFT Marketplace
-              </Button>
-              <Button className='w-full flex items-center justify-center'>
-                <Users className='w-4 h-4 mr-2' /> Sell Fitness Data
-              </Button>
-            </div>
+          <CardContent className='space-y-4'>
+            <Button className='w-full bg-purple-600 hover:bg-purple-700 text-white flex items-center justify-center'>
+              <TrendingUp className='w-4 h-4 mr-2' /> Trade NEO Tokens
+            </Button>
+            <Button className='w-full bg-purple-600 hover:bg-purple-700 text-white flex items-center justify-center'>
+              <Award className='w-4 h-4 mr-2' /> NFT Marketplace
+            </Button>
+            <Button className='w-full bg-purple-600 hover:bg-purple-700 text-white flex items-center justify-center'>
+              <Users className='w-4 h-4 mr-2' /> Sell Fitness Data
+            </Button>
           </CardContent>
         </Card>
       </div>
