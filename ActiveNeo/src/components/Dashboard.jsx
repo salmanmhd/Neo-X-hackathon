@@ -39,13 +39,10 @@ export default function Dashboard() {
 
   return (
     <div className='bg-gradient-to-br from-purple-900 to-black'>
-      {' '}
       <Navbar />
       <div className="flex justify-center items-center min-h-screen mt-5 text-white pb-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <Card className="bg-gradient-to-br from-purple-800 to-gray-900 border-purple-600">
-      <div className='flex justify-center items-center min-h-screen mt-5 text-white'>
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
+
           <Card className='bg-gradient-to-br from-purple-800 to-gray-900 border-purple-600'>
             <CardHeader>
               <CardTitle className='text-2xl font-bold text-center text-purple-300'>
@@ -91,10 +88,16 @@ export default function Dashboard() {
                 </span>
                 <span className='font-bold'>{nftsOwned}</span>
               </div>
-              <Button className='w-full bg-green-600 hover:bg-green-700 text-white'>
+              <Button
+                className='w-full bg-green-600 hover:bg-green-700 text-white'
+                onClick={handleClaimRewards}
+              >
                 Claim Daily Rewards
               </Button>
-              <Button className='w-full bg-blue-600 hover:bg-blue-700 text-white'>
+              <Button
+                className='w-full bg-blue-600 hover:bg-blue-700 text-white'
+                onClick={handleMintNFT}
+              >
                 Mint Achievement NFT
               </Button>
             </CardContent>

@@ -14,15 +14,9 @@ function MainSection() {
           fitness consistency.
         </p>
 
-<<<<<<< HEAD
-        <div className="flex space-x-4 mt-8">
-          <button className="px-6 py-3 border border-indigo-500 hover:bg-indigo-600 text-gray-50 rounded-xl flex items-center gap-2 hover:bg-gradient-to-r from-purple-500 to-black">
-            <span>Start Tracking</span>
-=======
         <div className='flex space-x-4 mt-8'>
           <button className='px-4 py-2 border border-indigo-500 hover:bg-indigo-600 text-gray-50 rounded-xl flex items-center gap-2 hover:bg-gradient-to-r from-purple-500 to-black'>
             <Link to='/tracker'>Start Tracking</Link>
->>>>>>> b107fb65d8376eaa17e5995aaf84d828f48dcaa1
           </button>
         </div>
       </div>
